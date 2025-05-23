@@ -42,3 +42,55 @@ class Car:
 BMW = Car()
 print(Car.all)
 ```
+
+- **Decorator** : decorator is an annotation on a function that can be used to extend the behavior of the function without permanently modifying it.
+
+> `@classmetod` : this decorator use to make any instance method as class method. so that it can be called without creating an instance of class. and it will be called on class level. here `self` is replaced by `cls` in class method. in backgroud `cls` will passed.
+```py
+# something like 
+class Car:
+    @classmethod
+    def ClassFunction(cls):
+        # logic
+        
+Car.ClassFunction()
+```
+
+- static methods, they are like same a class methods but in background it won't pass class object so we can access this method like a regular method. 
+```py
+class Car:
+    @staticmethod
+    def StaticFunction(arg1,arg2,...): # <-- note here we do not need to add `self` or `cls` here.
+        # logic
+```
+
+#### Inheritance
+- **Inheritance** : Inheritance is a mechanism in which one class can inherit the properties of another class. The class that is being inherited is called the parent class or the superclass, and class that is doing the inheriting is called the child class or the subclass.
+
+```py
+class Parent:
+    def __init__(self):
+        self.parent_attr = "Parent"
+        # logic
+class Child(Parent): # <- this is how we inherit parent class
+        def __init__(self):
+        super().__init__()
+        self.child_attr = "Child"
+        # logic
+```
+
+> to access the class name from instance we use `__class__.__name__`
+> to make read only attribute we use `@property` decorator basiaclly it works as **getter method**.
+> to make a variable semi private e.i. you can not change value but can access over instence we use `_` prefix.
+> to make a variable full private e.i. you can not change value and can not access over instance we use `__` prefix. 
+
+```py
+class Car:
+  def __init__(self): 
+    # logic  
+ @property
+    def name(self):
+        return self.__name
+```
+
+- **For settre method** we use `@name.setter` (refer above given example for `@name`) here `.setter` is important
