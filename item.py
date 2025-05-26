@@ -37,8 +37,8 @@ class Item:
         for item in items:
             Item(
                 name = item.get('name'),
-                price = float(item.get('price')),
-                quantity = float(item.get('quantity'))
+                price = float(item.get('price')), # type: ignore
+                quantity = float(item.get('quantity')) # type: ignore
             )
 
     @staticmethod
